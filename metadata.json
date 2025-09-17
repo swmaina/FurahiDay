@@ -1,0 +1,7 @@
+{
+  "name": "FurahiDay",
+  "description": "Discover your city’s vibe. FurahiDay helps you discover local entertainment events in East African cities by aggregating social-media-advertised gigs.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
