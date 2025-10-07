@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Event } from '../types';
 import { Icon } from './Icon';
+import { Logo } from './Logo';
 
 type EventDetailsScreenProps = {
   event: Event;
@@ -17,7 +18,7 @@ export const EventDetailsScreen: React.FC<EventDetailsScreenProps> = ({ event, i
   const [shareFeedback, setShareFeedback] = useState('');
 
   const handleShare = async () => {
-    const eventUrl = `https://furahiday.app/event/${event.id}`;
+    const eventUrl = `https://sherehe.app/event/${event.id}`;
     // Unified and detailed share text for both Web Share and clipboard
     const shareContent = `${event.title}\n\n${event.description}\n\nFind out more: ${eventUrl}`;
 
@@ -67,12 +68,15 @@ export const EventDetailsScreen: React.FC<EventDetailsScreenProps> = ({ event, i
       <div className="relative">
         <img className="w-full h-80 object-cover" src={event.flyerImageUrl} alt={event.title} />
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-dark-bg to-transparent"></div>
-        <button
-          onClick={onBack}
-          className="absolute top-4 left-4 bg-black bg-opacity-50 text-white rounded-full p-2"
-        >
-          <Icon name="back" className="w-6 h-6" />
-        </button>
+        <div className="absolute top-0 left-0 w-full flex justify-between items-center p-4 z-20">
+          <button
+            onClick={onBack}
+            className="bg-black bg-opacity-50 text-white rounded-full p-2"
+          >
+            <Icon name="back" className="w-6 h-6" />
+          </button>
+          <Logo className="h-8 w-auto" />
+        </div>
       </div>
 
       <div className="p-4 -mt-16 relative z-10">

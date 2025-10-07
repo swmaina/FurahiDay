@@ -1,8 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { City, Genre, CityInfo } from '../types';
 import { CITIES, INTERESTS } from '../constants';
 import { Icon } from './Icon';
+import { Logo } from './Logo';
 
 type OnboardingProps = {
   onComplete: (city: City, interests: Genre[]) => void;
@@ -75,10 +75,14 @@ export const OnboardingScreen: React.FC<OnboardingProps> = ({ onComplete }) => {
     switch (cityStepState) {
         case 'detecting':
             return (
-                <div className="flex flex-col items-center justify-center h-full text-center">
-                    <Icon name="location" className="w-16 h-16 text-brand-green animate-pulse" />
+                <div className="fixed inset-0 bg-black bg-opacity-70 z-50 flex flex-col items-center justify-center text-center p-4 backdrop-blur-sm animate-fade-in">
+                    <div className="relative flex items-center justify-center w-32 h-32 mb-4">
+                        <div className="absolute w-full h-full rounded-full bg-brand-green/20 animate-ping opacity-75"></div>
+                        <div className="absolute w-2/3 h-2/3 rounded-full bg-brand-green/30 animate-ping opacity-75" style={{ animationDelay: '0.2s' }}></div>
+                        <Icon name="location" className="w-16 h-16 text-brand-green relative" />
+                    </div>
                     <h2 className="text-2xl font-bold text-light-text mt-4">Finding events near you...</h2>
-                    <p className="text-medium-text mt-2">Please allow location access for the best experience.</p>
+                    <p className="text-medium-text mt-2 max-w-sm">Please allow location access for the best experience.</p>
                 </div>
             );
         case 'confirming':
@@ -130,12 +134,11 @@ export const OnboardingScreen: React.FC<OnboardingProps> = ({ onComplete }) => {
       case 1:
         return (
           <div className="text-center flex flex-col justify-center items-center h-full">
+            <h1 className="text-5xl font-bold mb-4 tracking-tight bg-gradient-to-r from-brand-green to-brand-orange text-transparent bg-clip-text">Sherehe</h1>
             <div className="mb-8">
-              <span className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-green to-brand-orange">
-                FurahiDay
-              </span>
+              <Logo className="h-20 w-auto" />
             </div>
-            <h1 className="text-2xl font-semibold text-light-text mb-2">Discover your city’s vibe.</h1>
+            <h2 className="text-2xl font-semibold text-light-text mb-2">Discover your city’s vibe.</h2>
             <p className="text-medium-text max-w-xs">Find the best gigs, concerts, and festivals happening near you.</p>
             <button
               onClick={() => setStep(2)}
@@ -159,13 +162,13 @@ export const OnboardingScreen: React.FC<OnboardingProps> = ({ onComplete }) => {
                   <button
                     key={interest}
                     onClick={() => toggleInterest(interest)}
-                    className={`relative p-4 rounded-xl font-semibold text-center transition-all duration-200 ${
-                      isSelected ? 'bg-brand-orange text-black' : 'bg-card-bg text-light-text'
+                    className={`relative p-4 rounded-xl font-semibold text-center transition-all duration-200 transform hover:scale-105 ${
+                      isSelected ? 'bg-brand-orange text-black scale-105 shadow-lg shadow-brand-orange/20' : 'bg-card-bg text-light-text'
                     }`}
                   >
                     {interest}
                     {isSelected && (
-                      <div className="absolute top-2 right-2 bg-black text-white rounded-full w-5 h-5 flex items-center justify-center">
+                      <div className="absolute top-2 right-2 bg-black text-white rounded-full w-5 h-5 flex items-center justify-center animate-fade-in">
                         <Icon name="check" className="w-3 h-3" />
                       </div>
                     )}

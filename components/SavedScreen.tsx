@@ -1,6 +1,7 @@
 import React from 'react';
 import { Event } from '../types';
 import { Icon } from './Icon';
+import { Logo } from './Logo';
 
 type SavedScreenProps = {
     savedEvents: Event[];
@@ -53,7 +54,7 @@ export const SavedScreen: React.FC<SavedScreenProps> = ({ savedEvents, onViewDet
 
             return [
                 'BEGIN:VEVENT',
-                `UID:${event.id}@furahiday.app`,
+                `UID:${event.id}@sherehe.app`,
                 `DTSTAMP:${dtstamp}`,
                 `DTSTART:${dtstart}`,
                 `DTEND:${dtend}`,
@@ -67,7 +68,7 @@ export const SavedScreen: React.FC<SavedScreenProps> = ({ savedEvents, onViewDet
         const icsFileContent = [
             'BEGIN:VCALENDAR',
             'VERSION:2.0',
-            'PRODID:-//FurahiDay//Event Planner//EN',
+            'PRODID:-//Sherehe//Event Planner//EN',
             icsEvents,
             'END:VCALENDAR'
         ].join('\r\n');
@@ -75,42 +76,47 @@ export const SavedScreen: React.FC<SavedScreenProps> = ({ savedEvents, onViewDet
         const blob = new Blob([icsFileContent], { type: 'text/calendar;charset=utf-8' });
         const link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
-        link.setAttribute('download', 'furahiday_events.ics');
+        link.setAttribute('download', 'sherehe_events.ics');
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
     };
 
     return (
-        <div className="p-4 pb-24">
-            <h1 className="text-3xl font-bold text-light-text mb-2">My Weekend Planner</h1>
-            <p className="text-medium-text mb-6">Your saved events for the upcoming days.</p>
+        <div className="pb-24">
+            <div className="p-4 sticky top-0 bg-indigo-950/75 backdrop-blur-sm z-10 flex items-center space-x-4">
+                <Logo className="h-8 w-auto flex-shrink-0" />
+                <h1 className="text-2xl md:text-3xl font-bold text-light-text truncate">My Weekend Planner</h1>
+            </div>
+            <div className="p-4">
+                <p className="text-medium-text mb-6">Your saved events for the upcoming days.</p>
 
-            {savedEvents.length > 0 ? (
-                <div className="space-y-4">
-                    <button 
-                        onClick={handleExportToCalendar}
-                        className="w-full flex items-center justify-center bg-brand-green text-black font-bold py-3 px-4 rounded-xl text-lg transition-transform hover:scale-105"
-                    >
-                        <Icon name="calendar" className="w-6 h-6 mr-2" />
-                        <span>Export to Calendar</span>
-                    </button>
-                    {savedEvents
-                        .sort((a, b) => a.date.getTime() - b.date.getTime())
-                        .map(event => (
-                            <SavedEventItem key={event.id} event={event} onViewDetails={onViewDetails} />
-                        ))
-                    }
-                </div>
-            ) : (
-                <div className="text-center py-20">
-                    <div className="w-20 h-20 bg-card-bg rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Icon name="saved" className="w-10 h-10 text-medium-text" />
+                {savedEvents.length > 0 ? (
+                    <div className="space-y-4">
+                        <button 
+                            onClick={handleExportToCalendar}
+                            className="w-full flex items-center justify-center bg-brand-green text-black font-bold py-3 px-4 rounded-xl text-lg transition-transform hover:scale-105"
+                        >
+                            <Icon name="calendar" className="w-6 h-6 mr-2" />
+                            <span>Export to Calendar</span>
+                        </button>
+                        {savedEvents
+                            .sort((a, b) => a.date.getTime() - b.date.getTime())
+                            .map(event => (
+                                <SavedEventItem key={event.id} event={event} onViewDetails={onViewDetails} />
+                            ))
+                        }
                     </div>
-                    <p className="text-lg font-semibold text-light-text">No saved events yet.</p>
-                    <p className="text-medium-text">Tap the save icon on an event to add it here.</p>
-                </div>
-            )}
+                ) : (
+                    <div className="text-center py-20">
+                        <div className="w-20 h-20 bg-card-bg rounded-full flex items-center justify-center mx-auto mb-4">
+                            <Icon name="saved" className="w-10 h-10 text-medium-text" />
+                        </div>
+                        <p className="text-lg font-semibold text-light-text">No saved events yet.</p>
+                        <p className="text-medium-text">Tap the save icon on an event to add it here.</p>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };

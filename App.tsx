@@ -19,8 +19,8 @@ const App: React.FC = () => {
     // Check localStorage for saved preferences on initial load
     useEffect(() => {
         try {
-            const savedCity = localStorage.getItem('furahiDayUserCity');
-            const savedInterestsJSON = localStorage.getItem('furahiDayUserInterests');
+            const savedCity = localStorage.getItem('shereheUserCity');
+            const savedInterestsJSON = localStorage.getItem('shereheUserInterests');
 
             if (savedCity && savedInterestsJSON) {
                 const savedInterests = JSON.parse(savedInterestsJSON) as Genre[];
@@ -50,8 +50,8 @@ const App: React.FC = () => {
 
         // Save preferences to localStorage
         try {
-            localStorage.setItem('furahiDayUserCity', city);
-            localStorage.setItem('furahiDayUserInterests', JSON.stringify(interests));
+            localStorage.setItem('shereheUserCity', city);
+            localStorage.setItem('shereheUserInterests', JSON.stringify(interests));
         } catch (error) {
             console.error("Failed to save user preferences to localStorage", error);
         }

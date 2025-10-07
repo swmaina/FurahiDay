@@ -1,4 +1,3 @@
-
 import { City, Genre, Event, CityInfo } from './types';
 
 export const CITIES: CityInfo[] = [
@@ -25,7 +24,7 @@ export const MOCK_EVENTS: Event[] = [
     {
         id: 1,
         title: 'Mugithi Night with Samidoh',
-        flyerImageUrl: 'https://picsum.photos/seed/event1/600/800',
+        flyerImageUrl: 'https://picsum.photos/seed/1/600/800',
         date: new Date(new Date().setDate(new Date().getDate() + 1)),
         venue: 'Kasarani Stadium, Nairobi',
         cost: 'KES 1000',
@@ -39,7 +38,7 @@ export const MOCK_EVENTS: Event[] = [
     {
         id: 2,
         title: 'Nairobi Hip Hop Fest',
-        flyerImageUrl: 'https://picsum.photos/seed/event2/600/800',
+        flyerImageUrl: 'https://picsum.photos/seed/2/600/800',
         date: new Date(new Date().setDate(new Date().getDate() + 2)),
         venue: 'The Alchemist, Westlands',
         cost: 'KES 1500',
@@ -53,7 +52,7 @@ export const MOCK_EVENTS: Event[] = [
     {
         id: 3,
         title: 'Kisumu Ohangla Extravaganza',
-        flyerImageUrl: 'https://picsum.photos/seed/event3/600/800',
+        flyerImageUrl: 'https://picsum.photos/seed/3/600/800',
         date: new Date(new Date().setDate(new Date().getDate() + 8)),
         venue: 'Acacia Premier Hotel',
         cost: 'KES 800',
@@ -67,7 +66,7 @@ export const MOCK_EVENTS: Event[] = [
     {
         id: 4,
         title: 'Mombasa Beach Festival',
-        flyerImageUrl: 'https://picsum.photos/seed/event4/600/800',
+        flyerImageUrl: 'https://picsum.photos/seed/4/600/800',
         date: new Date(new Date().setDate(new Date().getDate() + 3)),
         venue: 'Pirates Beach, Mombasa',
         cost: 'Free Entry',
@@ -81,7 +80,7 @@ export const MOCK_EVENTS: Event[] = [
     {
         id: 5,
         title: 'Rooftop Wine & Beer Tasting',
-        flyerImageUrl: 'https://picsum.photos/seed/event5/600/800',
+        flyerImageUrl: 'https://picsum.photos/seed/5/600/800',
         date: new Date(),
         venue: 'K1 Klub House, Nairobi',
         cost: 'KES 2500',
@@ -95,7 +94,7 @@ export const MOCK_EVENTS: Event[] = [
     {
         id: 6,
         title: 'Vintage Car Show',
-        flyerImageUrl: 'https://picsum.photos/seed/event6/600/800',
+        flyerImageUrl: 'https://picsum.photos/seed/6/600/800',
         date: new Date(new Date().setDate(new Date().getDate() + 9)),
         venue: 'Uhuru Gardens',
         cost: 'KES 500',
@@ -109,7 +108,7 @@ export const MOCK_EVENTS: Event[] = [
     {
         id: 7,
         title: 'Sauti Sol Live in Concert',
-        flyerImageUrl: 'https://picsum.photos/seed/event7/600/800',
+        flyerImageUrl: 'https://picsum.photos/seed/7/600/800',
         date: new Date(new Date().setDate(new Date().getDate() + 4)),
         venue: 'Carnivore Grounds',
         cost: 'KES 3000',
@@ -123,7 +122,7 @@ export const MOCK_EVENTS: Event[] = [
      {
         id: 8,
         title: 'Cultural Night Mombasa',
-        flyerImageUrl: 'https://picsum.photos/seed/event8/600/800',
+        flyerImageUrl: 'https://picsum.photos/seed/8/600/800',
         date: new Date(new Date().setDate(new Date().getDate() + 15)),
         venue: 'Fort Jesus, Mombasa',
         cost: 'KES 700',
@@ -137,7 +136,7 @@ export const MOCK_EVENTS: Event[] = [
     {
         id: 9,
         title: 'Lakeside Live Band Festival',
-        flyerImageUrl: 'https://picsum.photos/seed/event9/600/800',
+        flyerImageUrl: 'https://picsum.photos/seed/9/600/800',
         date: new Date(new Date().setDate(new Date().getDate() + 5)),
         venue: 'Dunga Hill Camp, Kisumu',
         cost: 'KES 1200',
@@ -151,7 +150,7 @@ export const MOCK_EVENTS: Event[] = [
     {
         id: 10,
         title: 'Kampala Night Life Fest',
-        flyerImageUrl: 'https://picsum.photos/seed/event10/600/800',
+        flyerImageUrl: 'https://picsum.photos/seed/10/600/800',
         date: new Date(new Date().setDate(new Date().getDate() + 6)),
         venue: 'Lugogo Cricket Oval, Kampala',
         cost: 'UGX 50000',
@@ -165,7 +164,7 @@ export const MOCK_EVENTS: Event[] = [
     {
         id: 11,
         title: 'Bongo Flava Beach Party',
-        flyerImageUrl: 'https://picsum.photos/seed/event11/600/800',
+        flyerImageUrl: 'https://picsum.photos/seed/11/600/800',
         date: new Date(new Date().setDate(new Date().getDate() + 12)),
         venue: 'Coco Beach, Dar es Salaam',
         cost: 'TZS 20000',
@@ -179,7 +178,7 @@ export const MOCK_EVENTS: Event[] = [
     {
         id: 12,
         title: 'Rift Valley Cultural Festival',
-        flyerImageUrl: 'https://picsum.photos/seed/event12/600/800',
+        flyerImageUrl: 'https://picsum.photos/seed/12/600/800',
         date: new Date(new Date().setDate(new Date().getDate() + 20)),
         venue: 'Nakuru Athletics Club',
         cost: 'KES 500',
@@ -189,5 +188,33 @@ export const MOCK_EVENTS: Event[] = [
         latitude: -0.283,
         longitude: 36.067,
         isPromoted: false,
+    },
+    {
+        id: 13,
+        title: 'Afro Fusion Night',
+        flyerImageUrl: 'https://picsum.photos/seed/13/600/800',
+        date: new Date(new Date().setDate(new Date().getDate() + 7)),
+        venue: 'Kengele\'s Lavington, Nairobi',
+        cost: 'KES 1200',
+        city: City.Nairobi,
+        genre: Genre.LiveBand,
+        description: 'A vibrant night of Afro-fusion music, featuring the best live bands in the city. Get ready to dance to infectious rhythms and soulful melodies.',
+        latitude: -1.278,
+        longitude: 36.784,
+        isPromoted: true,
+    },
+    {
+        id: 14,
+        title: 'Amapiano Sundowners',
+        flyerImageUrl: 'https://picsum.photos/seed/14/600/800',
+        date: new Date(new Date().setDate(new Date().getDate() + 10)),
+        venue: 'The Hub Karen, Nairobi',
+        cost: 'KES 2000',
+        city: City.Nairobi,
+        genre: Genre.Outdoor,
+        description: 'The ultimate Amapiano experience as the sun goes down. Enjoy signature cocktails, delicious food, and the smoothest Amapiano beats.',
+        latitude: -1.315,
+        longitude: 36.742,
+        isPromoted: true,
     }
 ];
